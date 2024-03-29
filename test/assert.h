@@ -25,9 +25,8 @@ typedef int bool;
   }
 
 #define print_results(path, name)                                              \
-  printf(path "/" #name ": ");                                                 \
   if (results.name) {                                                          \
-    printf("Pass \n");                                                         \
+    printf("\x1b[32m" path "/" #name ": Pass\x1b[0m\n");                       \
   } else {                                                                     \
-    printf("Fail \n");                                                         \
+    printf("\x1b[31m" path "/" #name ": Fail\x1b[0m\n");                       \
   }

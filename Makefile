@@ -15,7 +15,8 @@ out/obj/%.o: src/%.c
 out/main: src/main.c $(OBJ)
 	$(CC) $(C_ARGS) src/main.c $(OBJ) -o out/main
 
-out/test: test/main.c $(OBJ)
+out/test: $(shell find test/ -type f -name '*.c' -name '*.h') $(OBJ)
+	echo $^
 	$(CC) $(C_ARGS) test/main.c $(OBJ) -o out/test
 
 test: out/test
