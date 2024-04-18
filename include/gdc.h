@@ -1,3 +1,3 @@
 #pragma once
 
-int gdc(int, int);
+unsigned long gdc(unsigned long, unsigned long);
