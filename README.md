@@ -43,5 +43,7 @@ gcc -I./ -lm src/main.c src/gcd.c src/fib.c -o main
 The maximum input of 70 was chosen by comparing the result of the `fib` function
 with a fibonacci sequence calculated by summing the two previous fibonacci 
 numbers. Once the expected and the resulting fibonacci numbers do not equal 
-each other, then the script prints out the maximum correct fibonacci numberp
+each other, then the script prints out the maximum correct fibonacci number.
+
+If you would like to validate the results yourself, you can run `make find_largest`
 
