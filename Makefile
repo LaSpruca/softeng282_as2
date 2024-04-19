@@ -9,6 +9,14 @@ OBJ:=$(patsubst src/%.c, out/obj/%.o, $(SRC))
 
 DUMMY:=$(shell mkdir -p out/obj)
 
+# If the first argument is "run"...
+ifeq (run,$(firstword $(MAKECMDGOALS)))
+  # use the rest as arguments for "run"
+  RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+  # ...and turn them into do-nothing targets
+  $(eval $(RUN_ARGS):;@:)
+endif
+
 out/obj/%.o: src/%.c 
 	$(CC) $(C_ARGS) -c $^ -o $@ 
 
@@ -16,14 +24,13 @@ out/main: src/main.c $(OBJ)
 	$(CC) $(C_ARGS) src/main.c $(OBJ) -o out/main
 
 out/test: $(shell find test/ -type f -name '*.c' -name '*.h') $(OBJ)
-	echo $^
 	$(CC) $(C_ARGS) test/main.c $(OBJ) -o out/test
 
 test: out/test
 	out/test
 
 run: out/main
-	out/main
+	out/main $(RUN_ARGS)
 
 bin: out/main out/test
 

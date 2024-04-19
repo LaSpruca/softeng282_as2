@@ -1,5 +1,4 @@
-#include "include/gdc.h"
-#include <stdio.h>
+#include "include/gcd.h"
 
 typedef struct EuclidDivisionResult {
   unsigned long b;
@@ -19,7 +18,7 @@ EuclidDivisionResult euclid_divisian(unsigned long a, unsigned long q) {
   return res;
 }
 
-unsigned long gdc(unsigned long n, unsigned long m) {
+unsigned long gcd(unsigned long n, unsigned long m) {
   if (n == m) {
     return n;
   }
