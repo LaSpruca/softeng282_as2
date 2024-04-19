@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define INPUT_MAX 90
+#define INPUT_MAX 70
 
 char *executable = "<executable>";
 void usage() {

@@ -8,6 +8,7 @@
 
 // Fibonacci sequence Algorithm from
 // [Wikipedia](https://en.wikipedia.org/wiki/Fibonacci_sequence#Computation_by_rounding)
+// Article
 unsigned long fib(int n) {
   return (unsigned long)roundl(powl(PHI, n) / SQRT_5);
 }
